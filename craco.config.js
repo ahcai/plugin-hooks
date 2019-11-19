@@ -8,5 +8,17 @@ module.exports = {
     //
     // Please note that Craco plugins have nothing to do with Flex plugins; it's just a naming coincidence.
     // Changes to this file are optional, you will not need to modify it for normal Flex Plugin development.
-  ]
+    {
+      plugin: {
+          overrideWebpackConfig: ({ webpackConfig }) => {
+            const webpackConfigOverride = {
+              ...webpackConfig,
+              externals: {},
+            };
+
+            return webpackConfigOverride;
+          },
+      },
+    }
+  ],
 };
