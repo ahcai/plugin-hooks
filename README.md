@@ -1,3 +1,3 @@
 # plugin-hooks
 
-Demo plugin to show incompatibility with flex-ui dynamic components and React Hooks.
+Demo plugin to show incompatibility with flex-ui 1.14.1 dynamic components and React Hooks.

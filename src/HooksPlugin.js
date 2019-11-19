@@ -1,8 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { VERSION } from '@twilio/flex-ui';
 import { FlexPlugin } from 'flex-plugin';
 
-import CustomTaskListContainer from './components/CustomTaskList/CustomTaskList.Container';
+import HooksExample from './components/HooksExample/HooksExample';
 import reducers, { namespace } from './states';
 
 const PLUGIN_NAME = 'HooksPlugin';
@@ -23,10 +24,15 @@ export default class HooksPlugin extends FlexPlugin {
     this.registerReducers(manager);
 
     const options = { sortOrder: -1 };
+
+    // This breaks.
     flex.AgentDesktopView
       .Panel1
       .Content
-      .add(<CustomTaskListContainer key="demo-component" />, options);
+      .add(<HooksExample key="demo-component" />, options);
+
+    // This works.
+    // ReactDOM.render(<HooksExample />, document.getElementById('working-hooks-component'));
   }
 
   /**
